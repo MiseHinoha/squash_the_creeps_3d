@@ -1,4 +1,5 @@
 extends CharacterBody3D
+signal  hit	# 受伤信号
 
 # 移动速度
 @export var speed = 14
@@ -30,6 +31,7 @@ func _physics_process(delta):
 		
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
+	#print("player y %s" %target_velocity.y)
 	
 	# 跳跃
 	if is_on_floor() && Input.is_action_just_pressed("jump"):
@@ -54,3 +56,11 @@ func _physics_process(delta):
 	# 移动角色
 	velocity = target_velocity
 	move_and_slide()
+
+# 死亡逻辑
+func die():
+	hit.emit()
+	queue_free()
+
+func _on_mob_detector_body_entered(body):
+	die()

@@ -14,6 +14,7 @@ func initialize(start_position,player_position):
 	
 	var random_speed = randi_range(min_speed,max_speed)
 	velocity = Vector3.FORWARD * random_speed
+	#print("mob %s" %velocity.y)	# 0
 	velocity = velocity.rotated(Vector3.UP,rotation.y)
 
 func _on_visible_on_screen_notifier_3d_screen_exited():
