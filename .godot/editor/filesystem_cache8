@@ -1,9 +1,11 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1706973184
+::res://::1707005886
 default_bus_layout.tres::AudioBusLayout::-1::1706835290::0::1::::<><>::
 default_env.tres::Environment::-1::1706835290::0::1::::<><>::
 icon.png::CompressedTexture2D::3287619558045751021::1606009720::1706835304::1::::<><>::
-main.tscn::PackedScene::4452818199499796654::1706835476::0::1::::<><>::
+main.tscn::PackedScene::4452818199499796654::1706982148::0::1::::<><>::uid://dceqegc3501lh::::res://player.tscn
+player.gd::GDScript::-1::1706977022::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::7308876183974494733::1706982148::0::1::::<><>::uid://dowupyrtwc4en::::res://art/player.glb<>res://player.gd
 ::res://art/::1706835304
 body.material::StandardMaterial3D::-1::1605908508::0::1::::<><>::
 eye.material::StandardMaterial3D::-1::1606514142::0::1::::<><>::
