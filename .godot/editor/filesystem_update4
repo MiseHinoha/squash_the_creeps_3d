@@ -4,3 +4,7 @@ res://mob.tscn
 res://UserInterface.gd
 res://main.gd
 res://SorceLabel.gd
+res://bgm.tscn
+res://player.gd
+res://float.res
+res://Mob.gd

@@ -28,6 +28,9 @@ func _physics_process(delta):
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		$Pivot.look_at(position + direction, Vector3.UP)
+		$AnimationPlayer.speed_scale = 4
+	else:
+		$AnimationPlayer.speed_scale = 1
 		
 	target_velocity.x = direction.x * speed
 	target_velocity.z = direction.z * speed
@@ -56,6 +59,7 @@ func _physics_process(delta):
 	# 移动角色
 	velocity = target_velocity
 	move_and_slide()
+	$Pivot.rotation.x = PI / 6 * velocity.y / jump_impulse
 
 # 死亡逻辑
 func die():
