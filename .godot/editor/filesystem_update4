@@ -1,6 +1,6 @@
-res://main.tscn
 res://player.tscn
+res://main.tscn
 res://mob.tscn
-res://player.gd
-res://Mob.gd
+res://UserInterface.gd
 res://main.gd
+res://SorceLabel.gd

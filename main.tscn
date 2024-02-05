@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4o8jasw003be"]
+[gd_scene load_steps=12 format=3 uid="uid://b4o8jasw003be"]
 
 [ext_resource type="PackedScene" uid="uid://dceqegc3501lh" path="res://player.tscn" id="1_mviv5"]
 [ext_resource type="Script" path="res://main.gd" id="1_t48s8"]
 [ext_resource type="PackedScene" uid="uid://di1sf7m6vk61g" path="res://mob.tscn" id="2_m1j8a"]
+[ext_resource type="FontFile" uid="uid://bodtnkvfntv46" path="res://fonts/Montserrat-Medium.ttf" id="4_y1u04"]
+[ext_resource type="Script" path="res://SorceLabel.gd" id="5_idkd8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_02oia"]
 size = Vector3(60, 2, 60)
@@ -23,6 +25,10 @@ _data = {
 }
 point_count = 5
 
+[sub_resource type="Theme" id="Theme_ep28u"]
+default_font = ExtResource("4_y1u04")
+default_font_size = 22
+
 [node name="Main" type="Node"]
 script = ExtResource("1_t48s8")
 mob_scene = ExtResource("2_m1j8a")
@@ -42,7 +48,7 @@ mesh = SubResource("BoxMesh_ikskj")
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 24, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_mviv5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="CameraPivot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 0, 5)
@@ -80,6 +86,24 @@ transform = Transform3D(-0.00325553, 0, -0.999995, 0, 1, 0, 0.999995, 0, -0.0032
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_ep28u")
+
+[node name="SorceLabel" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 82.0
+offset_bottom = 43.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Score：0"
+script = ExtResource("5_idkd8")
 
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="timeout" from="MobTimer" to="." method="_on_mob_timer_timeout"]
